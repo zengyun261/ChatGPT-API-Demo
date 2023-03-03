@@ -19,9 +19,4 @@ public class ChatController : ControllerBase
         var msg = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
         return await _chatService.Chat(msg);
     }
-
-    public async Task<string> Foo()
-    {
-        return "hello";
-    }
 }
