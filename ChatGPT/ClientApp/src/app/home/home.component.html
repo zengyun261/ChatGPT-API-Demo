@@ -1,0 +1,22 @@
+<div class="messages" #messageDiv>
+  <div *ngFor="let x of messages" class="message {{x.role}}">
+    <img class="head" [src]="x.role=='assistant'?'/assets/gpt.svg':'/assets/user.webp'">
+    <div class="content">
+      <div *ngIf="x.loading" class="spinner-grow spinner-grow-sm" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <markdown *ngIf="!x.loading && x.role=='assistant' && x.markdown" style="width:100%;white-space: normal">{{x.markdown}}</markdown>
+      <div *ngIf="!x.loading && x.role=='assistant' && !x.markdown">{{x.content}}</div>
+      <div *ngIf="!x.loading && x.role=='user'">{{x.content}}</div>
+    </div>
+  </div>
+  <div style="height: 100px"></div>
+</div>
+<div class="footer">
+  <form style="display: flex" (ngSubmit)="onSubmit()">
+    <input class="form-control" placeholder="请输入您的问题..." [(ngModel)]="inputText" [ngModelOptions]="{standalone: true}">
+    <div>
+      <button [disabled]="busy" type="submit" class="btn btn-primary" style="white-space: nowrap;margin-left: 10px;">发送</button>
+    </div>
+  </form>
+</div>

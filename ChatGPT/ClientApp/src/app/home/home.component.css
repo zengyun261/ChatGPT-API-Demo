@@ -1,0 +1,48 @@
+﻿:host {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: scroll;
+  background: #fff;
+  font-size: 15px;
+}
+.messages pre {
+  margin: 0;
+}
+.message {
+  padding: 10px 15px;
+  display: flex;
+}
+.message .content {
+  margin-top: 3px;
+  flex: 1;
+  overflow-x: hidden;
+}
+.message .head {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.message.assistant .head {
+  padding: .25rem;
+  background: rgb(16, 163, 127);
+  color: rgb(255,255,255);
+  border-radius: .125rem;
+}
+
+.user {
+  background: #fff;
+}
+.assistant {
+  background: #f4f4f4;
+  border-top: solid #ddd 1px;
+  border-bottom: solid #ddd 1px;
+}
+.footer {
+  padding: 10px 15px;
+}
